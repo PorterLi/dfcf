@@ -1,0 +1,14 @@
+debug/dingvoice.o
+debug/freezetableview.o
+debug/main.o
+debug/mainwindow.o
+debug/tabledatagather.o
+debug/toolnetworktest.o
+debug/usercheck.o
+debug/qrc_resource.o
+debug/moc_dingvoice.o
+debug/moc_freezetableview.o
+debug/moc_mainwindow.o
+debug/moc_tabledatagather.o
+debug/moc_toolnetworktest.o
+debug/moc_usercheck.o

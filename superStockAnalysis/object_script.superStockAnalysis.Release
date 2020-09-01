@@ -1,0 +1,14 @@
+release/dingvoice.o
+release/freezetableview.o
+release/main.o
+release/mainwindow.o
+release/tabledatagather.o
+release/toolnetworktest.o
+release/usercheck.o
+release/qrc_resource.o
+release/moc_dingvoice.o
+release/moc_freezetableview.o
+release/moc_mainwindow.o
+release/moc_tabledatagather.o
+release/moc_toolnetworktest.o
+release/moc_usercheck.o

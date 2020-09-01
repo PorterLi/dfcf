@@ -1,0 +1,37 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file alias="logo">resource/logo.ico</file>
+        <file alias="paint_black">resource/paint_black.png</file>
+        <file alias="paint_gray">resource/paint_gray.png</file>
+        <file alias="paint_lightgray">resource/paint_lightgray.png</file>
+        <file alias="process_bar">resource/processbar.png</file>
+        <file alias="refreash">resource/resresh.png</file>
+        <file alias="save_red">resource/save _red.png</file>
+        <file alias="save_green">resource/save_green.png</file>
+        <file alias="save_yellow">resource/save_yellow.png</file>
+        <file alias="windows_icon">resource/stock-fill.png</file>
+        <file alias="tab_all">resource/tab_all.png</file>
+        <file alias="tab_history">resource/tab_history.png</file>
+        <file alias="tab_mostuse">resource/tab_mostuse.png</file>
+        <file alias="tab_personal">resource/tab_personal.png</file>
+        <file alias="changeuser">resource/changeuser.png</file>
+        <file alias="checkin">resource/checkin.png</file>
+        <file alias="checkout">resource/checkout.png</file>
+        <file alias="input_data">resource/input_data.png</file>
+        <file alias="output_data">resource/output_data.png</file>
+        <file alias="tool_column">resource/tool_column.png</file>
+        <file alias="notselected">resource/notselected.png</file>
+        <file alias="selected">resource/selected.png</file>
+        <file alias="serching">resource/serching.png</file>
+        <file alias="repair">resource/repair.png</file>
+        <file alias="password">resource/password.png</file>
+        <file alias="user">resource/user.png</file>
+    </qresource>
+    <qresource prefix="/voice">
+        <file alias="bell">resource/bells.mp3</file>
+        <file alias="chime">resource/chime.wav</file>
+    </qresource>
+    <qresource prefix="/bat">
+        <file>resource/repair.bat</file>
+    </qresource>
+</RCC>
