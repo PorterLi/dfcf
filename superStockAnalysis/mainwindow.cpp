@@ -14,7 +14,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineEditTab0Time->setPlaceholderText(QString("单位：秒"));
 
     /* 自定义窗口  */
-    userWidget = new UserCheck(nullptr);
+    userWidget = new UserCheck(this);
+    userWidget->hide();
 
 
 
@@ -166,6 +167,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    userWidget->close();
+    delete userWidget;
+
     netTestThread->exit(0);
     netTestThread->terminate();
     networkTest->deleteLater();
@@ -180,7 +184,6 @@ MainWindow::~MainWindow()
 
     delete validatorTab1;
 
-    delete userWidget;
     delete ui;
 }
 

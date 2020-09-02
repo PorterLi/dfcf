@@ -34,4 +34,7 @@
     <qresource prefix="/bat">
         <file>resource/repair.bat</file>
     </qresource>
+    <qresource prefix="/ini">
+        <file alias="DBSettings">resource/DBSettings.ini</file>
+    </qresource>
 </RCC>

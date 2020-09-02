@@ -41,7 +41,7 @@
       <attribute name="title">
        <string/>
       </attribute>
-      <widget class="QPushButton" name="pushButton_4">
+      <widget class="QPushButton" name="pushButtonLoginCancel">
        <property name="geometry">
         <rect>
          <x>150</x>
@@ -54,7 +54,7 @@
         <string>取消</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_5">
+      <widget class="QPushButton" name="pushButtonExchenge1">
        <property name="geometry">
         <rect>
          <x>30</x>
@@ -554,6 +554,9 @@
          <width>16777215</width>
          <height>28</height>
         </size>
+       </property>
+       <property name="placeholderText">
+        <string>用户名</string>
        </property>
       </widget>
       <widget class="QLabel" name="labelPassword">
@@ -1074,8 +1077,11 @@
        <property name="echoMode">
         <enum>QLineEdit::Password</enum>
        </property>
+       <property name="placeholderText">
+        <string>密码</string>
+       </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_6">
+      <widget class="QPushButton" name="pushButtonLogin">
        <property name="geometry">
         <rect>
          <x>30</x>
@@ -1093,7 +1099,7 @@
       <attribute name="title">
        <string/>
       </attribute>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="pushButtonRegisterCancel">
        <property name="geometry">
         <rect>
          <x>150</x>
@@ -1106,7 +1112,7 @@
         <string>取消</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit">
+      <widget class="QLineEdit" name="lineEditUserName2">
        <property name="geometry">
         <rect>
          <x>110</x>
@@ -1131,7 +1137,7 @@
         <string>用户名</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_2">
+      <widget class="QLineEdit" name="lineEditPassword2">
        <property name="geometry">
         <rect>
          <x>110</x>
@@ -1159,7 +1165,7 @@
         <string>密码</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="pushButtonRegister">
        <property name="geometry">
         <rect>
          <x>30</x>
@@ -1172,7 +1178,7 @@
         <string>注册</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_5">
+      <widget class="QLineEdit" name="lineEditPassword3">
        <property name="geometry">
         <rect>
          <x>110</x>
@@ -1251,7 +1257,7 @@
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="pushButtonExchange2">
        <property name="geometry">
         <rect>
          <x>30</x>

@@ -43,7 +43,7 @@ void TableDataGather::init()
     if(DB.isOpen()){
         DB.close();
     }
-    DB = QSqlDatabase::addDatabase("QMYSQL"); //添加数据库驱动
+    DB = QSqlDatabase::addDatabase("QMYSQL","tab0"); //添加数据库驱动
     DB.setHostName(db_ip);
     DB.setPort(db_port);
     DB.setDatabaseName(db_name);

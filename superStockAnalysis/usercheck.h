@@ -1,8 +1,21 @@
 #ifndef USERCHECK_H
 #define USERCHECK_H
 
+#include <Qt>
 #include <QWidget>
 #include <QLineEdit>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlRecord>
+#include <QSqlError>
+#include <QSettings>
+#include <QMessageBox>
+#include <QCryptographicHash>
+#include <QByteArray>
+#include <QVariant>
+
+#include <QFile>
+#include <QtDebug>
 
 namespace Ui {
 class UserCheck;
@@ -17,11 +30,17 @@ public:
     ~UserCheck();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_pushButtonExchenge1_clicked();
 
-    void on_pushButton_5_clicked();
+    void on_pushButtonExchange2_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_pushButtonLogin_clicked();
+
+    void on_pushButtonLoginCancel_clicked();
+
+    void on_pushButtonRegisterCancel_clicked();
+
+    void on_pushButtonRegister_clicked();
 
 private:
     Ui::UserCheck *ui;
