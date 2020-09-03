@@ -115,7 +115,7 @@ public:
     QLabel *label_2;
     QLineEdit *lineEditTab0Time;
     QWidget *page_2;
-    QVBoxLayout *verticalLayout_6;
+    QFormLayout *formLayout_5;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
     QFormLayout *formLayout_2;
@@ -124,6 +124,13 @@ public:
     QRadioButton *radioButton_2;
     QLineEdit *lineEditAddCondition;
     QPushButton *pushButton;
+    QPushButton *pushButton_5;
+    QPushButton *pushButton_6;
+    QLabel *label_3;
+    QPushButton *pushButtonTab1Start;
+    QCheckBox *checkBox;
+    QPushButton *pushButton_8;
+    QLineEdit *lineEditTab1Time;
     QWidget *page_3;
     QWidget *page_5;
     QFormLayout *formLayout_3;
@@ -143,7 +150,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(704, 500);
+        MainWindow->resize(737, 554);
         MainWindow->setMinimumSize(QSize(700, 500));
         actionInputData = new QAction(MainWindow);
         actionInputData->setObjectName(QString::fromUtf8("actionInputData"));
@@ -228,6 +235,7 @@ public:
         actionSetChime = new QAction(MainWindow);
         actionSetChime->setObjectName(QString::fromUtf8("actionSetChime"));
         actionSetChime->setCheckable(true);
+        actionSetChime->setChecked(true);
         actionSetChime->setIcon(icon10);
         actionSetBell = new QAction(MainWindow);
         actionSetBell->setObjectName(QString::fromUtf8("actionSetBell"));
@@ -254,7 +262,7 @@ public:
         scrollArea_tab0->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_2"));
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 487, 380));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 540, 430));
         verticalLayout_9 = new QVBoxLayout(scrollAreaWidgetContents_2);
         verticalLayout_9->setSpacing(2);
         verticalLayout_9->setContentsMargins(11, 11, 11, 11);
@@ -284,7 +292,7 @@ public:
         scrollArea_3->setWidgetResizable(true);
         scrollAreaWidgetContents_3 = new QWidget();
         scrollAreaWidgetContents_3->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_3"));
-        scrollAreaWidgetContents_3->setGeometry(QRect(0, 0, 487, 380));
+        scrollAreaWidgetContents_3->setGeometry(QRect(0, 0, 540, 430));
         verticalLayout_10 = new QVBoxLayout(scrollAreaWidgetContents_3);
         verticalLayout_10->setSpacing(2);
         verticalLayout_10->setContentsMargins(11, 11, 11, 11);
@@ -314,7 +322,7 @@ public:
         scrollArea_4->setWidgetResizable(true);
         scrollAreaWidgetContents_4 = new QWidget();
         scrollAreaWidgetContents_4->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_4"));
-        scrollAreaWidgetContents_4->setGeometry(QRect(0, 0, 487, 380));
+        scrollAreaWidgetContents_4->setGeometry(QRect(0, 0, 540, 430));
         horizontalLayout = new QHBoxLayout(scrollAreaWidgetContents_4);
         horizontalLayout->setSpacing(2);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
@@ -344,7 +352,7 @@ public:
         scrollArea_5->setWidgetResizable(true);
         scrollAreaWidgetContents_5 = new QWidget();
         scrollAreaWidgetContents_5->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_5"));
-        scrollAreaWidgetContents_5->setGeometry(QRect(0, 0, 487, 380));
+        scrollAreaWidgetContents_5->setGeometry(QRect(0, 0, 540, 430));
         verticalLayout_11 = new QVBoxLayout(scrollAreaWidgetContents_5);
         verticalLayout_11->setSpacing(2);
         verticalLayout_11->setContentsMargins(11, 11, 11, 11);
@@ -374,7 +382,7 @@ public:
         scrollArea_6->setWidgetResizable(true);
         scrollAreaWidgetContents_6 = new QWidget();
         scrollAreaWidgetContents_6->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_6"));
-        scrollAreaWidgetContents_6->setGeometry(QRect(0, 0, 487, 380));
+        scrollAreaWidgetContents_6->setGeometry(QRect(0, 0, 540, 430));
         verticalLayout_12 = new QVBoxLayout(scrollAreaWidgetContents_6);
         verticalLayout_12->setSpacing(2);
         verticalLayout_12->setContentsMargins(11, 11, 11, 11);
@@ -398,7 +406,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 704, 23));
+        menuBar->setGeometry(QRect(0, 0, 737, 25));
         menuBar->setMinimumSize(QSize(0, 20));
         QFont font;
         font.setPointSize(10);
@@ -485,7 +493,7 @@ public:
         toolBox->setMidLineWidth(1);
         page = new QWidget();
         page->setObjectName(QString::fromUtf8("page"));
-        page->setGeometry(QRect(0, 0, 190, 241));
+        page->setGeometry(QRect(0, 0, 190, 291));
         formLayout = new QFormLayout(page);
         formLayout->setSpacing(6);
         formLayout->setContentsMargins(11, 11, 11, 11);
@@ -536,18 +544,20 @@ public:
         toolBox->addItem(page, icon11, QString::fromUtf8("\345\205\250\351\207\217\346\225\260\346\215\256\345\205\250\350\207\252\345\212\250"));
         page_2 = new QWidget();
         page_2->setObjectName(QString::fromUtf8("page_2"));
-        page_2->setGeometry(QRect(0, 0, 170, 241));
-        verticalLayout_6 = new QVBoxLayout(page_2);
-        verticalLayout_6->setSpacing(2);
-        verticalLayout_6->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
-        verticalLayout_6->setContentsMargins(4, 4, 4, 4);
+        page_2->setGeometry(QRect(0, 0, 170, 291));
+        formLayout_5 = new QFormLayout(page_2);
+        formLayout_5->setSpacing(6);
+        formLayout_5->setContentsMargins(11, 11, 11, 11);
+        formLayout_5->setObjectName(QString::fromUtf8("formLayout_5"));
+        formLayout_5->setHorizontalSpacing(2);
+        formLayout_5->setVerticalSpacing(2);
+        formLayout_5->setContentsMargins(4, 4, 4, 4);
         scrollArea = new QScrollArea(page_2);
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 160, 184));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 160, 78));
         formLayout_2 = new QFormLayout(scrollAreaWidgetContents);
         formLayout_2->setSpacing(6);
         formLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -569,12 +579,12 @@ public:
 
         scrollArea->setWidget(scrollAreaWidgetContents);
 
-        verticalLayout_6->addWidget(scrollArea);
+        formLayout_5->setWidget(0, QFormLayout::SpanningRole, scrollArea);
 
         lineEditAddCondition = new QLineEdit(page_2);
         lineEditAddCondition->setObjectName(QString::fromUtf8("lineEditAddCondition"));
 
-        verticalLayout_6->addWidget(lineEditAddCondition);
+        formLayout_5->setWidget(1, QFormLayout::SpanningRole, lineEditAddCondition);
 
         pushButton = new QPushButton(page_2);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
@@ -589,16 +599,54 @@ public:
         palette1.setBrush(QPalette::Disabled, QPalette::Window, brush2);
         pushButton->setPalette(palette1);
 
-        verticalLayout_6->addWidget(pushButton);
+        formLayout_5->setWidget(2, QFormLayout::SpanningRole, pushButton);
+
+        pushButton_5 = new QPushButton(page_2);
+        pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
+
+        formLayout_5->setWidget(4, QFormLayout::SpanningRole, pushButton_5);
+
+        pushButton_6 = new QPushButton(page_2);
+        pushButton_6->setObjectName(QString::fromUtf8("pushButton_6"));
+
+        formLayout_5->setWidget(5, QFormLayout::SpanningRole, pushButton_6);
+
+        label_3 = new QLabel(page_2);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+
+        formLayout_5->setWidget(8, QFormLayout::LabelRole, label_3);
+
+        pushButtonTab1Start = new QPushButton(page_2);
+        pushButtonTab1Start->setObjectName(QString::fromUtf8("pushButtonTab1Start"));
+
+        formLayout_5->setWidget(12, QFormLayout::LabelRole, pushButtonTab1Start);
+
+        checkBox = new QCheckBox(page_2);
+        checkBox->setObjectName(QString::fromUtf8("checkBox"));
+        checkBox->setChecked(true);
+
+        formLayout_5->setWidget(3, QFormLayout::SpanningRole, checkBox);
+
+        pushButton_8 = new QPushButton(page_2);
+        pushButton_8->setObjectName(QString::fromUtf8("pushButton_8"));
+        pushButton_8->setEnabled(false);
+
+        formLayout_5->setWidget(12, QFormLayout::FieldRole, pushButton_8);
+
+        lineEditTab1Time = new QLineEdit(page_2);
+        lineEditTab1Time->setObjectName(QString::fromUtf8("lineEditTab1Time"));
+        lineEditTab1Time->setMinimumSize(QSize(60, 0));
+
+        formLayout_5->setWidget(8, QFormLayout::FieldRole, lineEditTab1Time);
 
         toolBox->addItem(page_2, icon12, QString::fromUtf8("\345\270\270\347\224\250\346\225\260\346\215\256\345\272\223"));
         page_3 = new QWidget();
         page_3->setObjectName(QString::fromUtf8("page_3"));
-        page_3->setGeometry(QRect(0, 0, 170, 241));
+        page_3->setGeometry(QRect(0, 0, 170, 291));
         toolBox->addItem(page_3, icon13, QString::fromUtf8("\344\270\252\344\272\272\346\225\260\346\215\256\345\272\223"));
         page_5 = new QWidget();
         page_5->setObjectName(QString::fromUtf8("page_5"));
-        page_5->setGeometry(QRect(0, 0, 170, 241));
+        page_5->setGeometry(QRect(0, 0, 170, 291));
         formLayout_3 = new QFormLayout(page_5);
         formLayout_3->setSpacing(6);
         formLayout_3->setContentsMargins(11, 11, 11, 11);
@@ -606,7 +654,7 @@ public:
         toolBox->addItem(page_5, icon14, QString::fromUtf8("\350\207\252\345\212\251\346\243\200\347\264\242"));
         page_4 = new QWidget();
         page_4->setObjectName(QString::fromUtf8("page_4"));
-        page_4->setGeometry(QRect(0, 0, 190, 241));
+        page_4->setGeometry(QRect(0, 0, 190, 291));
         formLayout_4 = new QFormLayout(page_4);
         formLayout_4->setSpacing(6);
         formLayout_4->setContentsMargins(11, 11, 11, 11);
@@ -705,8 +753,8 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
-        toolBox->setCurrentIndex(4);
+        tabWidget->setCurrentIndex(4);
+        toolBox->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -732,7 +780,7 @@ public:
         actionnet->setToolTip(QApplication::translate("MainWindow", "\347\275\221\347\273\234\344\277\256\345\244\215", nullptr));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_STATUSTIP
-        actionnet->setStatusTip(QString());
+        actionnet->setStatusTip(QApplication::translate("MainWindow", "\347\275\221\347\273\234\344\277\256\345\244\215", nullptr));
 #endif // QT_NO_STATUSTIP
 #ifndef QT_NO_WHATSTHIS
         actionnet->setWhatsThis(QApplication::translate("MainWindow", "\347\275\221\347\273\234\344\277\256\345\244\215", nullptr));
@@ -793,6 +841,7 @@ public:
 #ifndef QT_NO_WHATSTHIS
         lineEditTab0Time->setWhatsThis(QApplication::translate("MainWindow", "\345\215\225\344\275\215\357\274\232\347\247\222", nullptr));
 #endif // QT_NO_WHATSTHIS
+        lineEditTab0Time->setPlaceholderText(QApplication::translate("MainWindow", "\345\215\225\344\275\215\357\274\232\347\247\222", nullptr));
         toolBox->setItemText(toolBox->indexOf(page), QApplication::translate("MainWindow", "\345\205\250\351\207\217\346\225\260\346\215\256\345\205\250\350\207\252\345\212\250", nullptr));
         radioButton_4->setText(QApplication::translate("MainWindow", "WDHT", nullptr));
         radioButton_3->setText(QApplication::translate("MainWindow", "DHTQ", nullptr));
@@ -800,6 +849,13 @@ public:
         lineEditAddCondition->setText(QString());
         lineEditAddCondition->setPlaceholderText(QApplication::translate("MainWindow", "WDTHQF", nullptr));
         pushButton->setText(QApplication::translate("MainWindow", "\346\267\273\345\212\240\345\270\270\347\224\250\346\225\260\346\215\256\345\272\223", nullptr));
+        pushButton_5->setText(QApplication::translate("MainWindow", "\350\256\276\347\275\256\345\205\250\351\203\250\346\234\252\350\257\273", nullptr));
+        pushButton_6->setText(QApplication::translate("MainWindow", "\350\256\276\347\275\256\345\205\250\351\203\250\345\267\262\350\257\273", nullptr));
+        label_3->setText(QApplication::translate("MainWindow", "\346\227\266\351\227\264\345\221\250\346\234\237\357\274\232", nullptr));
+        pushButtonTab1Start->setText(QApplication::translate("MainWindow", "\345\220\257\345\212\250", nullptr));
+        checkBox->setText(QApplication::translate("MainWindow", "\346\230\257\345\220\246\345\220\257\345\212\250\345\243\260\351\237\263\351\242\204\350\255\246", nullptr));
+        pushButton_8->setText(QApplication::translate("MainWindow", "\345\201\234\346\255\242", nullptr));
+        lineEditTab1Time->setPlaceholderText(QApplication::translate("MainWindow", "\345\215\225\344\275\215\357\274\232\347\247\222", nullptr));
         toolBox->setItemText(toolBox->indexOf(page_2), QApplication::translate("MainWindow", "\345\270\270\347\224\250\346\225\260\346\215\256\345\272\223", nullptr));
         toolBox->setItemText(toolBox->indexOf(page_3), QApplication::translate("MainWindow", "\344\270\252\344\272\272\346\225\260\346\215\256\345\272\223", nullptr));
         toolBox->setItemText(toolBox->indexOf(page_5), QApplication::translate("MainWindow", "\350\207\252\345\212\251\346\243\200\347\264\242", nullptr));

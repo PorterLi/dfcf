@@ -29,7 +29,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <property name="iconSize">
       <size>
@@ -1275,6 +1275,20 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>lineEditUser</tabstop>
+  <tabstop>lineEditPassword</tabstop>
+  <tabstop>pushButtonLogin</tabstop>
+  <tabstop>pushButtonLoginCancel</tabstop>
+  <tabstop>pushButtonExchenge1</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>lineEditUserName2</tabstop>
+  <tabstop>lineEditPassword2</tabstop>
+  <tabstop>lineEditPassword3</tabstop>
+  <tabstop>pushButtonRegister</tabstop>
+  <tabstop>pushButtonRegisterCancel</tabstop>
+  <tabstop>pushButtonExchange2</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

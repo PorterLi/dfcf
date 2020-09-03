@@ -10,6 +10,14 @@
 #include <QRegExp>
 #include <QSqlField>
 #include <QTime>
+#include <QFileDialog>
+#include <QAxObject>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlRecord>
+#include <QSqlError>
+#include <QSettings>
+#include <QSqlDriver>
 
 #include <QDir>
 
@@ -42,7 +50,7 @@ public:
 
 private:
     /*  功能函数 */
-
+    void insert_userStockId(QString userName,QList<QString> stockIdList);
 
 public slots:
     void handle_errorMsg(QString msg);
@@ -52,6 +60,8 @@ public slots:
     void handle_hostIPMsg(QString msg);
 
     void handle_dataGather(QString tab,QSqlQuery query,QString useTime);
+
+    void handle_userLogin(QString loginName);
 
 private slots:
 
@@ -83,6 +93,12 @@ private slots:
     void on_radioButtonTab4Daily_clicked();
 
     void on_actionCheckIn_triggered();
+
+    void on_actionCheckOut_triggered();
+
+    void on_actionChangeUser_triggered();
+
+    void on_actionInputData_triggered();
 
 signals:
     void networkRefresh();

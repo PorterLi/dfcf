@@ -273,10 +273,21 @@ public:
 
         verticalLayout->addWidget(tabWidget);
 
+        QWidget::setTabOrder(lineEditUser, lineEditPassword);
+        QWidget::setTabOrder(lineEditPassword, pushButtonLogin);
+        QWidget::setTabOrder(pushButtonLogin, pushButtonLoginCancel);
+        QWidget::setTabOrder(pushButtonLoginCancel, pushButtonExchenge1);
+        QWidget::setTabOrder(pushButtonExchenge1, tabWidget);
+        QWidget::setTabOrder(tabWidget, lineEditUserName2);
+        QWidget::setTabOrder(lineEditUserName2, lineEditPassword2);
+        QWidget::setTabOrder(lineEditPassword2, lineEditPassword3);
+        QWidget::setTabOrder(lineEditPassword3, pushButtonRegister);
+        QWidget::setTabOrder(pushButtonRegister, pushButtonRegisterCancel);
+        QWidget::setTabOrder(pushButtonRegisterCancel, pushButtonExchange2);
 
         retranslateUi(UserCheck);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(UserCheck);

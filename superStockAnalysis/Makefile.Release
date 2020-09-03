@@ -158,6 +158,7 @@ release/qrc_resource.cpp: resource.qrc \
 		resource/output_data.png \
 		resource/checkout.png \
 		resource/selected.png \
+		resource/DBSettings.ini \
 		resource/bells.mp3 \
 		resource/chime.wav
 	I:\qt5.12.3\5.12.3\mingw73_32\bin\rcc.exe -name resource resource.qrc -o release\qrc_resource.cpp
@@ -501,9 +502,15 @@ release/moc_mainwindow.cpp: mainwindow.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/qtsql-config.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QTime \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qdatetime.h \
-		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QDir \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/QFileDialog \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qfiledialog.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qdir.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qfileinfo.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qdialog.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/ActiveQt/QAxObject \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/ActiveQt/qaxobject.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/ActiveQt/qaxbase.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QDir \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/QStandardItemModel \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/qstandarditemmodel.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qabstractitemmodel.h \
@@ -540,7 +547,6 @@ release/moc_mainwindow.cpp: mainwindow.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/qsqlrecord.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/QMessageBox \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qmessagebox.h \
-		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qdialog.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/QSqlError \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/qsqlerror.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QDebug \
@@ -569,7 +575,15 @@ release/moc_mainwindow.cpp: mainwindow.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtMultimedia/qtmultimediaglobal.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtMultimedia/qtmultimedia-config.h \
 		usercheck.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/Qt \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/QWidget \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QSettings \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qsettings.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QCryptographicHash \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qcryptographichash.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QVariant \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QFile \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QtDebug \
 		release/moc_predefs.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/bin/moc.exe
 	I:\qt5.12.3\5.12.3\mingw73_32\bin\moc.exe $(DEFINES) --include D:/jiaweilihiter/code/qt/dfcf_git/dfcf/superStockAnalysis/release/moc_predefs.h -II:/qt5.12.3/5.12.3/mingw73_32/mkspecs/win32-g++ -ID:/jiaweilihiter/code/qt/dfcf_git/dfcf/superStockAnalysis -II:/qt5.12.3/5.12.3/mingw73_32/include -II:/qt5.12.3/5.12.3/mingw73_32/include/ActiveQt -II:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets -II:/qt5.12.3/5.12.3/mingw73_32/include/QtMultimedia -II:/qt5.12.3/5.12.3/mingw73_32/include/QtGui -II:/qt5.12.3/5.12.3/mingw73_32/include/QtANGLE -II:/qt5.12.3/5.12.3/mingw73_32/include/QtNetwork -II:/qt5.12.3/5.12.3/mingw73_32/include/QtSql -II:/qt5.12.3/5.12.3/mingw73_32/include/QtCore -IH:/CETC/QT5.12.3/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IH:/CETC/QT5.12.3/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IH:/CETC/QT5.12.3/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IH:/CETC/QT5.12.3/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IH:/CETC/QT5.12.3/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IH:/CETC/QT5.12.3/Tools/mingw730_32/i686-w64-mingw32/include mainwindow.h -o release\moc_mainwindow.cpp
@@ -791,10 +805,8 @@ release/moc_toolnetworktest.cpp: toolnetworktest.h \
 	I:\qt5.12.3\5.12.3\mingw73_32\bin\moc.exe $(DEFINES) --include D:/jiaweilihiter/code/qt/dfcf_git/dfcf/superStockAnalysis/release/moc_predefs.h -II:/qt5.12.3/5.12.3/mingw73_32/mkspecs/win32-g++ -ID:/jiaweilihiter/code/qt/dfcf_git/dfcf/superStockAnalysis -II:/qt5.12.3/5.12.3/mingw73_32/include -II:/qt5.12.3/5.12.3/mingw73_32/include/ActiveQt -II:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets -II:/qt5.12.3/5.12.3/mingw73_32/include/QtMultimedia -II:/qt5.12.3/5.12.3/mingw73_32/include/QtGui -II:/qt5.12.3/5.12.3/mingw73_32/include/QtANGLE -II:/qt5.12.3/5.12.3/mingw73_32/include/QtNetwork -II:/qt5.12.3/5.12.3/mingw73_32/include/QtSql -II:/qt5.12.3/5.12.3/mingw73_32/include/QtCore -IH:/CETC/QT5.12.3/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IH:/CETC/QT5.12.3/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IH:/CETC/QT5.12.3/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IH:/CETC/QT5.12.3/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IH:/CETC/QT5.12.3/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IH:/CETC/QT5.12.3/Tools/mingw730_32/i686-w64-mingw32/include toolnetworktest.h -o release\moc_toolnetworktest.cpp
 
 release/moc_usercheck.cpp: usercheck.h \
-		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/QWidget \
-		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qwidget.h \
-		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
-		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/qtguiglobal.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/Qt \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qnamespace.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qglobal.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qconfig-bootstrapped.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qconfig.h \
@@ -816,11 +828,14 @@ release/moc_usercheck.cpp: usercheck.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qmutex.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qnumeric.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qversiontagging.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/QWidget \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qwidget.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/qtguiglobal.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/qtgui-config.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qtwidgets-config.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/qwindowdefs.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qobjectdefs.h \
-		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qnamespace.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qobjectdefs_impl.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/qwindowdefs_win.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qobject.h \
@@ -901,6 +916,27 @@ release/moc_usercheck.cpp: usercheck.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/qtextformat.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/qpen.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/qtextoption.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/QSqlDatabase \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/qsqldatabase.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/qtsqlglobal.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/qtsql-config.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/QSqlQuery \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/qsqlquery.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/QSqlRecord \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/qsqlrecord.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/QSqlError \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/qsqlerror.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QSettings \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qsettings.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/QMessageBox \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qmessagebox.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qdialog.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QCryptographicHash \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qcryptographichash.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QByteArray \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QVariant \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QFile \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QtDebug \
 		release/moc_predefs.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/bin/moc.exe
 	I:\qt5.12.3\5.12.3\mingw73_32\bin\moc.exe $(DEFINES) --include D:/jiaweilihiter/code/qt/dfcf_git/dfcf/superStockAnalysis/release/moc_predefs.h -II:/qt5.12.3/5.12.3/mingw73_32/mkspecs/win32-g++ -ID:/jiaweilihiter/code/qt/dfcf_git/dfcf/superStockAnalysis -II:/qt5.12.3/5.12.3/mingw73_32/include -II:/qt5.12.3/5.12.3/mingw73_32/include/ActiveQt -II:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets -II:/qt5.12.3/5.12.3/mingw73_32/include/QtMultimedia -II:/qt5.12.3/5.12.3/mingw73_32/include/QtGui -II:/qt5.12.3/5.12.3/mingw73_32/include/QtANGLE -II:/qt5.12.3/5.12.3/mingw73_32/include/QtNetwork -II:/qt5.12.3/5.12.3/mingw73_32/include/QtSql -II:/qt5.12.3/5.12.3/mingw73_32/include/QtCore -IH:/CETC/QT5.12.3/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IH:/CETC/QT5.12.3/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IH:/CETC/QT5.12.3/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IH:/CETC/QT5.12.3/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IH:/CETC/QT5.12.3/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IH:/CETC/QT5.12.3/Tools/mingw730_32/i686-w64-mingw32/include usercheck.h -o release\moc_usercheck.cpp
@@ -1251,9 +1287,15 @@ release/main.o: main.cpp mainwindow.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/qtsql-config.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QTime \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qdatetime.h \
-		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QDir \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/QFileDialog \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qfiledialog.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qdir.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qfileinfo.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qdialog.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/ActiveQt/QAxObject \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/ActiveQt/qaxobject.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/ActiveQt/qaxbase.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QDir \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/QStandardItemModel \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/qstandarditemmodel.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qabstractitemmodel.h \
@@ -1290,7 +1332,6 @@ release/main.o: main.cpp mainwindow.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/qsqlrecord.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/QMessageBox \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qmessagebox.h \
-		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qdialog.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/QSqlError \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/qsqlerror.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QDebug \
@@ -1319,7 +1360,15 @@ release/main.o: main.cpp mainwindow.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtMultimedia/qtmultimediaglobal.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtMultimedia/qtmultimedia-config.h \
 		usercheck.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/Qt \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/QWidget \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QSettings \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qsettings.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QCryptographicHash \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qcryptographichash.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QVariant \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QFile \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QtDebug \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/QApplication \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qapplication.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qcoreapplication.h \
@@ -1456,9 +1505,15 @@ release/mainwindow.o: mainwindow.cpp mainwindow.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/qtsql-config.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QTime \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qdatetime.h \
-		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QDir \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/QFileDialog \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qfiledialog.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qdir.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qfileinfo.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qdialog.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/ActiveQt/QAxObject \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/ActiveQt/qaxobject.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/ActiveQt/qaxbase.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QDir \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/QStandardItemModel \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/qstandarditemmodel.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qabstractitemmodel.h \
@@ -1495,7 +1550,6 @@ release/mainwindow.o: mainwindow.cpp mainwindow.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/qsqlrecord.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/QMessageBox \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qmessagebox.h \
-		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qdialog.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/QSqlError \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/qsqlerror.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QDebug \
@@ -1524,9 +1578,16 @@ release/mainwindow.o: mainwindow.cpp mainwindow.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtMultimedia/qtmultimediaglobal.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtMultimedia/qtmultimedia-config.h \
 		usercheck.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/Qt \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/QWidget \
-		ui_mainwindow.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QSettings \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qsettings.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QCryptographicHash \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qcryptographichash.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QVariant \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QFile \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QtDebug \
+		ui_mainwindow.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/QIcon \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/QAction \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qaction.h \
@@ -1786,10 +1847,8 @@ release/toolnetworktest.o: toolnetworktest.cpp toolnetworktest.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\toolnetworktest.o toolnetworktest.cpp
 
 release/usercheck.o: usercheck.cpp usercheck.h \
-		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/QWidget \
-		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qwidget.h \
-		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
-		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/qtguiglobal.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/Qt \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qnamespace.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qglobal.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qconfig-bootstrapped.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qconfig.h \
@@ -1811,11 +1870,14 @@ release/usercheck.o: usercheck.cpp usercheck.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qmutex.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qnumeric.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qversiontagging.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/QWidget \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qwidget.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qtwidgetsglobal.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/qtguiglobal.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/qtgui-config.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qtwidgets-config.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/qwindowdefs.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qobjectdefs.h \
-		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qnamespace.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qobjectdefs_impl.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/qwindowdefs_win.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qobject.h \
@@ -1896,8 +1958,28 @@ release/usercheck.o: usercheck.cpp usercheck.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/qtextformat.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/qpen.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtGui/qtextoption.h \
-		ui_usercheck.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/QSqlDatabase \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/qsqldatabase.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/qtsqlglobal.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/qtsql-config.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/QSqlQuery \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/qsqlquery.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/QSqlRecord \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/qsqlrecord.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/QSqlError \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtSql/qsqlerror.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QSettings \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qsettings.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/QMessageBox \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qmessagebox.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qdialog.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QCryptographicHash \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qcryptographichash.h \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QByteArray \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QVariant \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QFile \
+		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/QtDebug \
+		ui_usercheck.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/QApplication \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtWidgets/qapplication.h \
 		I:/qt5.12.3/5.12.3/mingw73_32/include/QtCore/qcoreapplication.h \

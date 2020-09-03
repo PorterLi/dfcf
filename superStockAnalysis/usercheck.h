@@ -42,6 +42,13 @@ private slots:
 
     void on_pushButtonRegister_clicked();
 
+    void on_lineEditPassword_returnPressed();
+
+    void on_lineEditPassword3_returnPressed();
+
+signals:
+    void userLogined(QString);
+
 private:
     Ui::UserCheck *ui;
 };

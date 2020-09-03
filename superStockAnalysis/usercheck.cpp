@@ -35,6 +35,15 @@ UserCheck::~UserCheck()
     delete ui;
 }
 
+/************  slot  ****************/
+/**
+ * @brief UserCheck::on_lineEditPassword_returnPressed
+ * 登陆密码输入enter的slot
+ */
+void UserCheck::on_lineEditPassword_returnPressed()
+{
+    on_pushButtonLogin_clicked();
+}
 
 void UserCheck::on_pushButtonExchenge1_clicked()
 {
@@ -82,26 +91,33 @@ void UserCheck::on_pushButtonLogin_clicked()
         QString loginPassword = ui->lineEditPassword->text();
         QCryptographicHash passwordMd5(QCryptographicHash::Md5);
         passwordMd5.addData(loginPassword.toLatin1());
-        QString temp(passwordMd5.result().toHex());
+        QString tempPassword(passwordMd5.result().toHex());
         QSqlQuery sqlquery(DB);
-        QString sql("SELECT password FROM FinatialDB_Test.user_main where user_name = ':userName' limit 1;");
+        QString sql("SELECT password FROM FinatialDB_Test.user_main where user_name = ':user' limit 1;");
+        sql.replace(QString(":user"),loginName);
         sqlquery.prepare(sql);
-        sqlquery.bindValue(":userName","test");
         sqlquery.exec();
-        QSqlRecord record;
-        qDebug()<<sqlquery.record();
-        while(sqlquery.next()){
-            qDebug()<<sqlquery.record();
-        }
-        qDebug()<<record.value("password");
-//        qDebug()<<sqlquery.
+//        qDebug()<<sqlquery.lastQuery();
         int fieldNo = sqlquery.record().indexOf("password");
-        while (sqlquery.next()) {
-          QString country = sqlquery.value("password").toString();
-            qDebug()<<country;
+        QString passwordRecv;
+        while(sqlquery.next()){
+            passwordRecv = sqlquery.value(fieldNo).toString();
         }
-
-
+        if(passwordRecv.isNull()){
+            QMessageBox::warning(this, "warning", "用户名不存在！",QMessageBox::Ok,QMessageBox::NoButton);
+            qDebug()<<passwordRecv;
+        }else if (passwordRecv == tempPassword){
+//            qDebug()<<passwordRecv;
+//            qDebug()<<tempPassword;
+            emit userLogined(loginName);
+            this->hide();
+            ui->lineEditUser->clear();
+            ui->lineEditPassword->clear();
+        }else{
+            QMessageBox::warning(this, "warning", "密码不正确！",QMessageBox::Ok,QMessageBox::NoButton);
+            qDebug()<<passwordRecv;
+            qDebug()<<tempPassword;
+        }
         DB.close();
     }
 }
@@ -112,7 +128,68 @@ void UserCheck::on_pushButtonLogin_clicked()
  */
 void UserCheck::on_pushButtonRegister_clicked()
 {
+    QSettings settings("./resource/DBSettings.ini",QSettings::IniFormat,this);
+    QSqlDatabase  DB;
+    if (QSqlDatabase::contains("login")) {
+        DB = QSqlDatabase::database("login");
+    } else {
+        DB = QSqlDatabase::addDatabase("QMYSQL", "login");
+    }
+    DB.setHostName(settings.value("DBsettings/IP").toString());
+    DB.setPort(settings.value("DBsettings/PORT").toInt());
+    DB.setDatabaseName(settings.value("DBsettings/DBNAME").toString());
+    DB.setUserName(settings.value("DBsettings/USER").toString());
+    DB.setPassword(settings.value("DBsettings/PASSWORD").toString());
+    if(!DB.open()){
+        QMessageBox::warning(this, "错误", "无法连接远程服务器"+DB.lastError().text(),QMessageBox::Ok,QMessageBox::NoButton);
+        DB.close();
+    }else{
 
+        QString registName = ui->lineEditUserName2->text();
+        QString registPasswordOne = ui->lineEditPassword2->text();
+        QString registPasswordTwo = ui->lineEditPassword3->text();
+        if(registPasswordOne != registPasswordTwo){
+            QMessageBox::warning(this, "warning", "两次输入密码不一致！请重新输入",QMessageBox::Ok,QMessageBox::NoButton);
+            ui->lineEditPassword2->clear();
+            ui->lineEditPassword3->clear();
+            DB.close();
+            return;
+        }
+        QCryptographicHash passwordMd5(QCryptographicHash::Md5);
+        passwordMd5.addData(registPasswordOne.toLatin1());
+        QString tempPassword(passwordMd5.result().toHex());
+
+        QSqlQuery sqlquery(DB);
+        QString sql("SELECT user_name FROM FinatialDB_Test.user_main where user_name = ':user' limit 1;");
+        sql.replace(QString(":user"),registName);
+        sqlquery.prepare(sql);
+        sqlquery.exec();
+        int fieldNo = sqlquery.record().indexOf("user_name");
+        QString user_name;
+        while(sqlquery.next()){
+            user_name = sqlquery.value(fieldNo).toString();
+            if(user_name == registName){
+                QMessageBox::warning(this, "warning", "用户名已存在！",QMessageBox::Ok,QMessageBox::NoButton);
+                ui->lineEditUserName2->clear();
+                ui->lineEditPassword2->clear();
+                ui->lineEditPassword3->clear();
+                return;
+            }
+        }
+        /*   用户名 和密码均可使用  */
+        QString insertSql("insert into FinatialDB_Test.user_main (user_name,password) values (':userName',':password');");
+        insertSql.replace(QString(":userName"),registName);
+        insertSql.replace(QString(":password"),tempPassword);
+        sqlquery.clear();
+        sqlquery.prepare(insertSql);
+        sqlquery.exec();
+        DB.close();
+        this->hide();
+        ui->lineEditUserName2->clear();
+        ui->lineEditPassword2->clear();
+        ui->lineEditPassword3->clear();
+        emit userLogined(registName);
+    }
 }
 
 
@@ -135,3 +212,12 @@ void UserCheck::on_pushButtonRegisterCancel_clicked()
 }
 
 
+
+/**
+ * @brief UserCheck::on_lineEditPassword3_returnPressed
+ * 注册密码输入后的换行符slot
+ */
+void UserCheck::on_lineEditPassword3_returnPressed()
+{
+    on_pushButtonRegister_clicked();
+}

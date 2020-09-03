@@ -10,12 +10,16 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setWindowIconText(QString("全景金融解析界面"));
     this->setWindowTitle(QString("全景金融解析界面"));
 
+    /* 用户模块 */
+    user = QString("testUser");
+
     /********** 提示 ***********/
     ui->lineEditTab0Time->setPlaceholderText(QString("单位：秒"));
 
     /* 自定义窗口  */
     userWidget = new UserCheck(this);
     userWidget->hide();
+    connect(userWidget,SIGNAL(userLogined(QString)),this,SLOT(handle_userLogin(QString)));
 
 
 
@@ -77,7 +81,7 @@ MainWindow::MainWindow(QWidget *parent) :
     /************************ 底部状态栏 ******************************/
     /*  用户名称  */
     userName = new QLabel(this);
-    userName->setText(QString(" User:") + QString("testUser") + QString("  "));
+    userName->setText(QString(" User:") + user + QString("  "));
     ui->statusBar->addWidget(userName);
     /* 本机IP显示　*/
     hostIp = new QLabel(this);
@@ -106,8 +110,6 @@ MainWindow::MainWindow(QWidget *parent) :
     dataRefresh->setFrame(false);
     ui->statusBar->addWidget(dataRefresh);
     dataRefresh->setText(QString("数据刷新中"));
-
-
 
     /*  按钮功能 输入限制  */
     QRegExp regxTab0("[0123456789]+$");
@@ -157,8 +159,7 @@ MainWindow::MainWindow(QWidget *parent) :
     emit dingVoice();
 
 
-    /* 用户模块 */
-    user = QString("testUser");
+
 
 
 
@@ -264,6 +265,12 @@ void MainWindow::handle_dataGather(QString tab,QSqlQuery query,QString useTime)
     dataRefresh->setText(temp);
 }
 
+void MainWindow::handle_userLogin(QString loginName)
+{
+    user = loginName;
+    userName->setText(QString(" User:") + user + QString("  "));
+}
+
 
 /******************** private slot *****************************/
 /**
@@ -347,6 +354,35 @@ void MainWindow::on_dockWidget_visibilityChanged(bool visible)
     }
 }
 
+/**
+ * @brief MainWindow::on_actionCheckIn_triggered
+ * 登陆按钮
+ */
+void MainWindow::on_actionCheckIn_triggered()
+{
+    userWidget->show();
+}
+
+/**
+ * @brief MainWindow::on_actionCheckOut_triggered
+ * 推出登陆按钮
+ *
+ */
+void MainWindow::on_actionCheckOut_triggered()
+{
+    handle_userLogin(QString("testUser"));
+}
+
+/**
+ * @brief MainWindow::on_actionChangeUser_triggered
+ * 切换用户
+ */
+void MainWindow::on_actionChangeUser_triggered()
+{
+    userWidget->show();
+}
+
+
 
 /**
  * @brief MainWindow::on_actionnet_triggered
@@ -368,19 +404,43 @@ void MainWindow::on_actionnet_triggered()
     }
 }
 
+
 /**
- * @brief MainWindow::on_checkBoxTab0Voice_stateChanged
- * @param arg1
- * @function tab0 声音提示设置
+ * @brief MainWindow::on_pushButtonStartTab0_clicked
+ * @param checked
+ * tab0 中的启动按钮
  */
-void MainWindow::on_checkBoxTab0Voice_stateChanged(int arg1)
+void MainWindow::on_pushButtonStartTab0_clicked(bool checked)
 {
-    if(arg1 == 2){
-        /*  有声音提示 */
-        tab0Voice = true;
+    ui->pushButtonStartTab0->setEnabled(checked);
+    ui->pushButtonStartTab0->setChecked(checked);
+    ui->pushButtonStopTab0->setEnabled(!checked);
+    ui->pushButtonStopTab0->setChecked(!checked);
+
+    QString time = ui->lineEditTab0Time->text();
+    int t_time = time.toInt();
+    if(t_time < 30){
+        QMessageBox::information(this, "警告", "刷新时间间隔应大于30秒！\n",QMessageBox::Ok,QMessageBox::NoButton);
     }else{
-        tab0Voice = false;
+        emit tab0Regular(true,t_time);
     }
+    ui->lineEditTab0Time->setEnabled(false);
+}
+
+/**
+ * @brief MainWindow::on_pushButtonStopTab0_clicked
+ * @param checked
+ * tab0 中停止按钮
+ */
+void MainWindow::on_pushButtonStopTab0_clicked(bool checked)
+{
+    ui->pushButtonStopTab0->setEnabled(checked);
+    ui->pushButtonStopTab0->setChecked(checked);
+    ui->pushButtonStartTab0->setEnabled(!checked);
+    ui->pushButtonStartTab0->setChecked(!checked);
+
+    emit tab0Regular(false,30);
+    ui->lineEditTab0Time->setEnabled(true);
 }
 
 /**
@@ -443,50 +503,189 @@ void MainWindow::on_actionRefresh_triggered()
 
 
 /**
- * @brief MainWindow::on_pushButtonStartTab0_clicked
- * @param checked
- * tab0 中的启动按钮
+ * @brief MainWindow::on_checkBoxTab0Voice_stateChanged
+ * @param arg1
+ * @function tab0 声音提示设置
  */
-void MainWindow::on_pushButtonStartTab0_clicked(bool checked)
+void MainWindow::on_checkBoxTab0Voice_stateChanged(int arg1)
 {
-    ui->pushButtonStartTab0->setEnabled(checked);
-    ui->pushButtonStartTab0->setChecked(checked);
-    ui->pushButtonStopTab0->setEnabled(!checked);
-    ui->pushButtonStopTab0->setChecked(!checked);
-
-    QString time = ui->lineEditTab0Time->text();
-    int t_time = time.toInt();
-    if(t_time < 30){
-        QMessageBox::information(this, "警告", "刷新时间间隔应大于30秒！\n",QMessageBox::Ok,QMessageBox::NoButton);
+    if(arg1 == 2){
+        /*  有声音提示 */
+        tab0Voice = true;
     }else{
-        emit tab0Regular(true,t_time);
+        tab0Voice = false;
     }
-    ui->lineEditTab0Time->setEnabled(false);
-
 }
 
 /**
- * @brief MainWindow::on_pushButtonStopTab0_clicked
- * @param checked
- * tab0 中停止按钮
+ * @brief MainWindow::on_actionInputData_triggered
+ * 导入文件
  */
-void MainWindow::on_pushButtonStopTab0_clicked(bool checked)
+void MainWindow::on_actionInputData_triggered()
 {
-    ui->pushButtonStopTab0->setEnabled(checked);
-    ui->pushButtonStopTab0->setChecked(checked);
-    ui->pushButtonStartTab0->setEnabled(!checked);
-    ui->pushButtonStartTab0->setChecked(!checked);
+    QString filter = "excel文件(*.xlsx);;csv文件(*.csv)";
+    QString curpath = QDir::currentPath();
+    QString aFileName = QFileDialog::getOpenFileName(this,"导入股票代码", curpath, filter);
+    if(aFileName.endsWith(QString(".csv"))){
+        QFile txtFile(aFileName);
+        if(txtFile.open(QIODevice::ReadOnly|QIODevice::Text)){
+            QTextStream in(&txtFile);
+            //QString line = in.readAll();
+            QString line = in.readLine();
+            QStringList lineList = line.split(',');
+            if(lineList.contains(QString("代码")) || lineList.contains(QString("stock_id"))){
+                int column = -1;
+                if(lineList.contains(QString("代码"))){
+                    column = lineList.indexOf(QString("代码"));
+                }else if(lineList.contains(QString("stock_id"))){
+                    column = lineList.indexOf(QString("stock_id"));
+                }
+                QStringList stockIdList;
+                while(!in.atEnd() && column != -1){
+                    line = in.readLine();
+                    lineList = line.split(',');
+                    QString stockId = lineList.at(column);
+                    stockIdList.append(stockId);
+                }
+                if(stockIdList.length() > 0){
+                    insert_userStockId(user,stockIdList);
 
-    emit tab0Regular(false,30);
-    ui->lineEditTab0Time->setEnabled(true);
+                }
+                QMessageBox::information(this,"完成","导入数据成功。导入完成：" + QString::number(stockIdList.length()) + "条！",QMessageBox::Ok,QMessageBox::NoButton);
+                txtFile.close();
+            }else{
+                QMessageBox::warning(this,"文件内容格式错误","首行缺少名为‘代码’或‘stock_id’的列名！", QMessageBox::Ok,QMessageBox::NoButton);
+                txtFile.close();
+                return;
+            }
+        }else{
+            QString errorStr = "打开文件失败:" + txtFile.errorString();
+            QMessageBox::warning(this,"错误",errorStr.toUtf8(), QMessageBox::Ok,QMessageBox::NoButton);
+        }
+    }else if (aFileName.endsWith(QString(".xlsx"))){
+        QAxObject excelFile("Excel.Application");
+        if(excelFile.isNull()){
+            QMessageBox::warning(this,"Excel库缺失","导入Excel库失败，请使用csv文件进入导入！", QMessageBox::Ok,QMessageBox::NoButton);
+            return;
+        }
+        /*  是否可见excel */
+        excelFile.setProperty("Visible",false);
+        QAxObject *workbooks = excelFile.querySubObject("WorkBooks");
+        workbooks->dynamicCall("Open (const QString&)",aFileName);
+        if(workbooks->isNull()){
+            QMessageBox::warning(this,"Excel打开失败","打开workbook失败，请使用csv文件进入导入！", QMessageBox::Ok,QMessageBox::NoButton);
+            return;
+        }
+        QAxObject *curWorkBooks = excelFile.querySubObject("ActiveWorkBook");
+        QAxObject *workSheets = curWorkBooks->querySubObject("WorkSheets");
+        int sheetCount = workSheets->property("Count").toInt();
+//        qDebug()<<sheetCount;
+        QList<QString> stockIdList;
+        QList<QString> stockIdBadList;
+        for(int i = 1 ;i <= sheetCount;i++){
+            QAxObject *workSheet = curWorkBooks->querySubObject("WorkSheets(int)",i);
+            /* 获取 sheet的使用范围 */
+            QAxObject *usedRange = workSheet->querySubObject("UsedRange");
+            QAxObject *rows = usedRange->querySubObject("Rows");
+            QAxObject *columns = usedRange->querySubObject("Columns");
+            int intRows = rows->property("Count").toInt();
+            int intColumns = columns->property("Count").toInt();
+            int intRowStart = usedRange->property("Row").toInt();
+            int intColumnStart = usedRange->property("Column").toInt();
+            for(int j = intRowStart; j < intRowStart + intRows; j++){
+                static int stockIdColumn = -1;
+                if(j == intRowStart){
+                    for(int k = intColumnStart; k < intColumnStart + intColumns; k++){
+                        QAxObject *cell = workSheet->querySubObject("Cells(int,int)",j,k);
+                        QString value = cell->dynamicCall("Value2()").toString();
+                        if(value == QString("代码") or value == QString("stock_id")){
+                            stockIdColumn = k;
+                        }
+                    }
+                }else{
+                    if(stockIdColumn == -1){
+                        excelFile.dynamicCall("Quit()");
+                        QMessageBox::warning(this,"文件内容格式错误","首行缺少名为‘代码’或‘stock_id’的列名！", QMessageBox::Ok,QMessageBox::NoButton);
+                        return;
+                    }
+                    QAxObject *cell = workSheet->querySubObject("Cells(int,int)",j,stockIdColumn);
+                    QString value = cell->dynamicCall("Value2()").toString();
+                    bool ok = false;
+                    value.toInt(&ok);
+                    if(value.length() == 6 && ok){
+                        stockIdList.append(value);
+                    }else{
+                        stockIdBadList.append(value);
+                    }
+                }
+            }
+        }
+        /*  插入数据  */
+        insert_userStockId(user,stockIdList);
+        /*  退出excel */
+        excelFile.dynamicCall("Quit()");
+        /*  错误数据（未写入数据库原因说明） */
+        if(stockIdBadList.length() > 0){
+            QString badId = stockIdBadList.at(0);
+            for(int l = 1; l < stockIdBadList.length(); l++){
+                badId += ", " + stockIdBadList.at(l);
+            }
+            if(badId.length() > 60){
+                badId = badId.left(60) + "...";
+            }
+            QMessageBox::information(this,"格式错误数据",badId, QMessageBox::Ok,QMessageBox::NoButton);
+        }else{
+            QMessageBox::information(this,"完成","数据读取完成,并已经写入到数据库中", QMessageBox::Ok,QMessageBox::NoButton);
+        }
+    }else{
+        return;
+    }
 }
 
 
-/**
- * @brief MainWindow::on_actionCheckIn_triggered
- * 登陆按钮
- */
-void MainWindow::on_actionCheckIn_triggered()
+void MainWindow::insert_userStockId(QString userName,QList<QString> stockIdList)
 {
-    userWidget->show();
+    QSettings settings("./resource/DBSettings.ini",QSettings::IniFormat,this);
+    QSqlDatabase  DB;
+    if (QSqlDatabase::contains("insertStockId")) {
+        DB = QSqlDatabase::database("insertStockId");
+    } else {
+        DB = QSqlDatabase::addDatabase("QMYSQL", "insertStockId");
+    }
+    DB.setHostName(settings.value("DBsettings/IP").toString());
+    DB.setPort(settings.value("DBsettings/PORT").toInt());
+    DB.setDatabaseName(settings.value("DBsettings/DBNAME").toString());
+    DB.setUserName(settings.value("DBsettings/USER").toString());
+    DB.setPassword(settings.value("DBsettings/PASSWORD").toString());
+    if(!DB.open()){
+        QMessageBox::warning(this, "错误", "Excel数据已读取，但无法连接远程服务器"+DB.lastError().text(),QMessageBox::Ok,QMessageBox::NoButton);
+        DB.close();
+    }else{
+        QSqlQuery sqlquery(DB);
+        QString sql("SELECT `index` FROM FinatialDB_Test.user_main where user_name = ':userName' limit 1;");
+        sql.replace(QString(":userName"),userName);
+        sqlquery.prepare(sql);
+        sqlquery.exec();
+        int fieldNo = sqlquery.record().indexOf("index");
+        QString userIndex;
+        while(sqlquery.next()){
+            userIndex = sqlquery.value(fieldNo).toString();
+        }
+        sqlquery.clear();
+
+        sqlquery.exec("START TRANSACTION");
+        QString insertSql("replace into FinatialDB_Test.user_stock_id(`user_index`,`user_name`,`user_stock_id`) value (:userIndex,':userName',':stockId');");
+        foreach(QString stockId,stockIdList){
+            QString temp = insertSql;
+            temp.replace(":userIndex",userIndex);
+            temp.replace(":userName",userName);
+            temp.replace(":stockId",stockId);
+            sqlquery.prepare(temp);
+            sqlquery.exec();
+//            qDebug()<<sqlquery.lastQuery();
+            sqlquery.clear();
+        }
+        sqlquery.exec("COMMIT");
+        sqlquery.exec("ROLLBACK");
+    }
 }
